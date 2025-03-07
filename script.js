@@ -230,12 +230,13 @@ document.getElementById("Hive").addEventListener("click", function() {
 
 
 
-ocument.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
     const teamSection = document.querySelector('.team-members');
     const flyingBees = document.querySelectorAll('.flying-bee');
     const teamMembers = document.querySelectorAll('.team-member');
     const profileImages = document.querySelectorAll('.profile');
     const teamMemberInfos = document.querySelectorAll('.team-member-info');
+    
     
     // initial positions for bees (off-screen)
     const beePositions = [

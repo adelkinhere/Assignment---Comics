@@ -1,8 +1,8 @@
 @font-face {
   font-family: 'More Sugar';
-  src: url(fonts/Regular.ttf);
+  src: url(images/fonts/Regular.ttf);
   font-family: 'More Sugar Thin';
-  src: url(fonts/Thin.ttf);
+  src: url(images/fonts/Thin.ttf);
 }
 
 body{
@@ -64,9 +64,20 @@ body{
 
 
 #comic {
-    padding-top: 80px;
-    width: 100%
-    
+    /* padding-top: 80px; */
+    width: 100%;
+    height: 300px;
+}
+
+#comic h2 {
+  font-family: 'More Sugar';
+  text-align: center;
+  align-items: center;
+  font-size: 60px;
+  margin-left: -40px;
+  color: #423839;
+  margin-top: 15px;
+  margin-bottom: 30px;
 }
 
 /* Slideshow styles */
@@ -74,6 +85,9 @@ body{
   position: relative;
   max-width: 1000px;
   margin: auto;
+  align-items: center;
+  margin-left: 14%;
+  margin-right: -14%;
 }
 
 .slide {
@@ -91,22 +105,22 @@ body{
   cursor: pointer;
   position: absolute;
   top: 50%;
-  width: 50px;               /* Set a fixed width */
-  height: 50px;              /* Set a fixed height (same as width for perfect circle) */
+  width: 70px;               /* Set a fixed width */
+  height: 70px;              /* Set a fixed height (same as width for perfect circle) */
   margin-top: -25px;         /* Half the height for vertical centering */
   padding: 0;                /* Remove padding */
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
+  color: #1B141C;
+  font-family: 'More Sugar';
+  font-size: 30px;
   transition: 0.6s ease;
   border-radius: 50%;        /* Make it a circle with border-radius: 50% */
   user-select: none;
-  background-color: rgba(0,0,0,0.3);
+  background-color: #E39414;
   text-decoration: none;
   display: flex;             /* Use flexbox for centering the arrow */
   justify-content: center;   /* Center horizontally */
   align-items: center;       /* Center vertically */
-  line-height: 1;            /* Reset line height */
+  line-height: 2;            /* Reset line height */
 }
 
 .prev, .back-btn {
@@ -121,7 +135,8 @@ body{
 
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover, .next:hover, .back-btn {
-  background-color: rgba(0,0,0,0.8);
+  background-color: #1B141C;;
+  color:#E39414 ;
 }
 
 /* Choice buttons styling */
@@ -134,8 +149,25 @@ body{
   padding: 10px 20px;
   margin: 0 10px;
   cursor: pointer;
+  border-radius: 100%;
+  font-family: 'More Sugar Thin';
+  font-size: 40px;
+  border-color: #F9FBF2;
 }
 
+#yesBtn{
+  background-color: #E39414;
+  color: #1B141C;
+}
+#noBtn{
+  background-color: #1B141C;;
+  color: #E39414;
+}
+
+.choice-btn:hover {
+  border-color: #1B141C;
+  border-width: 5px;
+}
 
 #about {
   background-color: #F9FBF2;
@@ -151,6 +183,8 @@ header {
   background-color: #FFC107;
   margin-bottom: 20px;
   font-family: 'More Sugar Thin';
+  font-size: 20px;
+  margin-top: 60px;
 }
 
 #about h1 {
@@ -158,9 +192,8 @@ header {
   margin-bottom: 10px;
 }
 
-#about h2 {
-  font-size: 30px;
-  margin-top: 80px;
+#Title {
+  font-size: 40px;
 }
 
 .team-container {
@@ -176,7 +209,6 @@ header {
 }
 
 .team-title h2 {
-  font-size: 60px;
   font-family: 'More Sugar';
 }
 
