@@ -10,8 +10,6 @@
     <!-- Link to CSS file -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- Icons -->
-    <!-- <script src="https://kit.fontawesome.com/e006b7ccdb.js" crossorigin="anonymous"></script> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href='https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000' rel='stylesheet'>
 
@@ -24,7 +22,7 @@
 <div class="navbar" id="myTopnav">
   <a href="#home">Home</a> 
   <a href="#comic">Comic</a>
-  <a href="#description">Description</a> 
+  <a href="#description">About</a> 
   <a href="#about">Team</a>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>
 </div>
@@ -39,7 +37,8 @@
     <div id="hidden-images">
       <img id="back2" src="images/honeycomb.png" alt="background2">
       <img id="backtitle" class="fullscreen-img" src="images/welcomehive.png" alt="Title">
-        <img id="bees" src="images/beeko2.svg" alt="Bees" />
+      <img id="bees" src="images/beeko2.svg" alt="Bees">
+      <button class="nextpage" id="comicbutton">Explore Comic</button>
     </div>
 </div>
 
@@ -48,13 +47,13 @@
   <h2>Bee Yourself</h2>
     <div id="initialSlideshow" class="slideshow-container">
         <div class="slide active">
-            <img src="images/scene 1.jpg" alt="Comic Page 1" width=1000 height=600>
+            <img src="images/scene 1.png" alt="Comic Page 1" width=1000 height=600>
         </div>
         <div class="slide">
-            <img src="images/scene 2.jpg" alt="Comic Page 2" width=1000 height=600>
+            <img src="images/scene 2.png" alt="Comic Page 2" width=1000 height=600>
         </div>
         <div class="slide">
-            <img src="images/scene 3.jpg" alt="Comic Page 3" width=1000 height=600>
+            <img src="images/scene 3.png" alt="Comic Page 3" width=1000 height=600>
         </div>
         <a class="prev" onclick="plusSlides(-1)" id="initialPrev">&#10094;</a>
         <a class="next" onclick="plusSlides(1)" id="initialNext">&#10095;</a>
@@ -63,7 +62,7 @@
     <!-- Choice Slide -->
     <div id="choiceScreen" class="slideshow-container" style="display: none;">
         <div class="slide active">
-            <img src="images/IMG_0537.JPG" alt="Choice Page" width=1000 height=600>
+            <img src="images/scene 4.png" alt="Choice Page" width=1000 height=600>
             <div class="choice-buttons">
                 <button class="choice-btn yes-btn" id="yesBtn">Yes</button>
                 <button class="choice-btn no-btn" id="noBtn">No</button>
@@ -75,11 +74,17 @@
     <!-- If User chose "Yes" -->
     <div id="yesSlideshow" class="slideshow-container" style="display: none;">
         <div class="slide active">
-            <img src="images/Screenshot 2025-02-26 at 10.29.56.png" alt="Yes Path Page 1" width=1000 height=600>
+            <img src="images/scene 5.png" alt="Yes Path Page 1" width=1000 height=600>
         </div>
         <div class="slide">
-            <img src="images/Screenshot 2025-02-26 at 10.35.33.png" alt="Yes Path Page 2" width=1000 height=600>
+            <img src="images/scene 6.png" alt="Yes Path Page 2" width=1000 height=600>
         </div>
+        <div class="slide">
+          <img src="images/scene 7.png" alt="Yes Path Page 3" width=1000 height=600>
+      </div>
+      <div class="slide">
+        <img src="images/final scene.png" alt="Yes Path Page 4" width=1000 height=600>
+    </div>
         <a class="prev" onclick="plusSlides(-1)" id="yesPrev">&#10094;</a>
         <a class="next" onclick="plusSlides(1)" id="yesNext">&#10095;</a>
         <a class="restart" onclick="restartStory()" id="yesRestart" style="display: none;">↺</a>
@@ -88,20 +93,28 @@
     <!-- If User chose "No"-->
     <div id="noSlideshow" class="slideshow-container" style="display: none;">
         <div class="slide active">
-            <img src="images/scene 1.jpg" alt="No Path Page 1" width=1000 height=600>
+            <img src="images/scene 8.png" alt="No Path Page 1" width=1000 height=600>
         </div>
         <div class="slide">
-            <img src="images/scene 2.jpg" alt="No Path Page 2" width=1000 height=600>
+            <img src="images/final scene.png" alt="No Path Page 2" width=1000 height=600>
         </div>
         <a class="prev" onclick="plusSlides(-1)" id="noPrev">&#10094;</a>
         <a class="next" onclick="plusSlides(1)" id="noNext">&#10095;</a>
         <a class="restart" onclick="restartStory()" id="noRestart" style="display: none;">↺</a>
     </div>
+
+    <audio id="finalSound">
+      <source src="audio/beatles.mp3" type="audio/mp3">
+  </audio>
 </div>
 
 <!-- description page -->
 <div id="description" class="content">
-  
+  <img id="back2" src="images/honeycomb.png" alt="background2">
+  <h2 class="descriptiontitle">About the Comic</h2>
+    <p class="descriptionpara">
+      Small but lively bee, Buzz,  lives comfortably in his home hive, where he knows every flower and nectar spot. One day, he moves to a new "NYUAD Hive." He feels both excited and nervous about this big change. When he arrives, everything is different, new flowers, new smells, and many new bees, each unique in their own way.  Buzz notices bees with red wings, confidently engaging in class discussions and socializing in the dining hall. He admires them but feels unsure about joining their table. Looking at his reflection in a mirror, he wonders if he should paint his wings red to fit in.
+    </p>
 </div>
 
 <!-- about page -->
@@ -298,7 +311,7 @@
           <div class="team-member member-3">
             <img class="profile" src="images/mukhlisa.png" alt="Team Member 3">
             <div class="team-member-info">
-              <h3>Muklisa</h3>
+              <h3>Mukhlisa</h3>
               <p>Pollen Illustrator</p>
             </div>
           </div>

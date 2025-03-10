@@ -1,3 +1,5 @@
+const finalSound = new Audio("audio/beatles.mp3"); 
+
 // Navigation script
 // Handles showing and hiding content sections based on navigation link clicks
 document.addEventListener('DOMContentLoaded', function() {
@@ -5,14 +7,23 @@ document.addEventListener('DOMContentLoaded', function() {
   const contentSections = document.querySelectorAll('.content');
 
   function showSection(sectionId) {
+
       contentSections.forEach(section => {
           section.style.display = 'none';
       });
       const selectedSection = document.getElementById(sectionId);
       if (selectedSection) {
+        finalSound.pause();
           selectedSection.style.display = 'block';
       }
   }
+
+  let button = document.querySelector(".nextpage");
+if (button) {
+    button.addEventListener("click", function () {
+        showSection("comic"); // Use the same function navbar uses
+    });
+}
 
   navLinks.forEach(link => {
       link.addEventListener('click', function(e) {
@@ -26,7 +37,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   showSection('home');
   navLinks[0].classList.add('active');
+
 });
+
 
  
 
@@ -76,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function showSlide(index, slides) {
       slides.forEach(slide => slide.classList.remove('active'));
       slides[index].classList.add('active');
-  }
+      }
   
   // Update navigation buttons visibility
   function updateButtonVisibility() {
@@ -103,6 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
   }
   
+  
   // Global function for navigation
   window.plusSlides = function(n) {
       // Determine which slideshow is currently visible
@@ -124,6 +138,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   choiceScreen.style.display = 'block';
               }
           }
+
       } else if (yesSlideshow.style.display === 'block' || getComputedStyle(yesSlideshow).display === 'block') {
           if (n < 0) {
               if (yesIndex > 0) {
@@ -141,6 +156,9 @@ document.addEventListener('DOMContentLoaded', function() {
                   showSlide(yesIndex, yesSlides);
               }
           }
+          if (yesIndex === yesSlides.length - 1) {
+            playFinalSound();
+        }
       } else if (noSlideshow.style.display === 'block' || getComputedStyle(noSlideshow).display === 'block') {
           if (n < 0) {
               if (noIndex > 0) {
@@ -158,11 +176,19 @@ document.addEventListener('DOMContentLoaded', function() {
                   showSlide(noIndex, noSlides);
               }
           }
+          if (noIndex === noSlides.length - 1) {
+            playFinalSound();
+        }
       }
       
       // Update button visibility after changing slides
       updateButtonVisibility();
   };
+
+  function playFinalSound() {
+    finalSound.currentTime = 0; // Restart sound from the beginning
+    finalSound.play(); // Play the sound
+}
   
   // Restart function
   window.restartStory = function() {
@@ -181,6 +207,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // Show first slide of initial slideshow
       showSlide(currentIndex, initialSlides);
       
+      finalSound.pause();
       // Update button visibility
       updateButtonVisibility();
   };
@@ -293,3 +320,16 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', updateBeePositions);
     updateBeePositions(); // updating positions immediately in case the section is already in view
   });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    let button = document.querySelector(".nextpage");
+
+    if (button) { // Ensure button exists before adding event
+        button.addEventListener("click", function () {
+            const comicpage = document.getElementById("comic");
+            if (comicpage) {
+                comicpage.style.display = 'block'; // Show the comic page
+            }
+        });
+    }
+});
